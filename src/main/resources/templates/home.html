@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" th:href="@{/style/style.css}" type="text/css" />
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <h1><a href="index.html">Wel<span class="logo_colour">come</span></a></h1>
+                <h2>Simple Credit Calculator</h2>
+            </div>
+        </div>
+        <div id="menubar">
+            <ul id="menu">
+                <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                <li class="selected"><a href="index.html">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="site_content">
+        <div id="content">
+            <form action="/calculate" method="post">
+                <label for="value">Value:</label>
+                <input type="text" name="value" placeholder="Your value" id="value">
+
+                <label for="years">Years:</label>
+                <input type="text" name="years" placeholder="Years" id="years">
+
+                <label for="percentage">Percentage</label>
+                <input type="number" name="percentage" min="0" max="25" step="5" value="0" id="percentage">
+                <input type="submit" value="Calculate">
+            </form>
+            <br>
+            <div class="result">
+                Wynik to: <span th:text="${rate}"</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<a href="home">Przejdź dalej</a>-->
+</body>
+</html>
